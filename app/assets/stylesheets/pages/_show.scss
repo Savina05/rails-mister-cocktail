@@ -1,0 +1,15 @@
+.show-img {
+  width: 500px;
+  height: 300px;
+  border-radius: 4px;
+}
+
+a {
+  color: #af7793;
+  font-weight: bold;
+
+  &:hover {
+    text-decoration: none;
+    color: #a55c91;
+  }
+}

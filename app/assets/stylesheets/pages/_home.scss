@@ -1,4 +1,61 @@
 // Specific CSS for your home-page
 body {
   font-family: 'Lato', sans-serif;
+  // background-image: url("background.jpg");
+  // height: 600px;
+  background-color: rgba(252, 241, 244, 0.5);
+}
+
+a {
+  color: #af7793;
+  font-weight: bold;
+
+  &:hover {
+    text-decoration: none;
+    color: #a55c91;
+  }
+}
+
+h1 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: #af7793;
+  text-align: center;
+}
+
+.card-img {
+  width: 400px;
+}
+
+.pink-btn {
+  border: 1px solid #A07D90;
+  color: #A07D90;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: white;
+}
+
+.card {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.img-rounded {
+  border-radius: 8px 8px 0px 0px;
+}
+
+.add-btn {
+  text-align: center;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: #af7793;
+  font-weight: bold;
+
+  a {
+    color: white;
+  }
+
+  &:hover {
+    background-color: #a55c91;
+  }
 }

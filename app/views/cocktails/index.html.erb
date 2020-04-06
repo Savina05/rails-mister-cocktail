@@ -1,12 +1,30 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <a class="navbar-brand" href=<% root_path %>>
+    <i class="fas fa-cocktail"> Cocktails</i>
+  </a>
+
+  <div>
+    <p class= "add-btn"><%= link_to "Add new cocktail" , new_cocktail_path %></p>
+  </div>
+</div>
+
+
 <div class="container">
-  <% @cocktails.each do |cocktail| %>
-    <div class="card">
-      <div>
-        <h3><%= link_to cocktail.name, cocktail_path(cocktail.id) %></h3>
+  <h1>Cocktails</h1>
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
+        <div class="d-flex justify-content-around align-items-center">
+          <div class="card mb-5" style="width: 18rem;">
+            <%= image_tag "#{cocktail.name.downcase}.jpg", class: "card-img-top img-rounded" %>
+            <div class="card-body">
+              <h5 class="card-title"><%= link_to cocktail.name, cocktail_path(cocktail.id) %></h5>
+              <p class="card-text">See the ingredients to prepare the best <%= cocktail.name %></p>
+              <!-- <a href="#" class="pink-btn">Ingredients</a> -->
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-
-  <% end %>
-
-  <%= link_to "Add new cocktail", new_cocktail_path %>
+    <% end %>
+  </div>
 </div>

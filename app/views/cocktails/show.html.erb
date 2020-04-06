@@ -1,20 +1,41 @@
 <div class="container">
   <h1><%= @cocktail.name %></h1>
+  <div class="d-flex justify-content-around">
+    <div>
+      <%= image_tag "#{@cocktail.name.downcase}.jpg", class: "show-img" %>
+    </div>
 
-  <h3>List of Ingredients</h3>
+    <div class="">
 
-  <ul>
-    <% @cocktail.doses.each do |dose| %>
-      <li>
-        <%= dose.description %>
-        <%= link_to cocktail_dose_path(@cocktail.id, dose), method: :delete do %>
-          <i class="fas fa-trash"></i>
-        <% end %>
-      </li>
-    <% end %>
-  </ul>
+      <div style="margin-top: 16px">
+        <h4>List of Ingredients</h4>
+        <ul>
+          <% @cocktail.doses.each do |dose| %>
+            <li>
+              <p> <%= dose.description %> <%= dose.ingredient.name %>
+                <%= link_to cocktail_dose_path(@cocktail.id, dose), method: :delete do %>
+                <i class="fas fa-trash"></i>
+              <% end %>
+              </p>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <br>
+      <br>
 
-  <%= link_to "Add dose", new_cocktail_dose_path(@cocktail) %>
+      <div>
+        <h5>How to proceed</h5>
+        <p>1. Add the ingredients together in a cocktail shaker.</p>
+        <p>2. Shake well with cracked ice.</p>
+        <p>3. Strain into a glass over cubed ice.</p>
+        <p>4. Garnish with a twist of orange peel.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <p style="text-align: right"><%= link_to "Add dose", new_cocktail_dose_path(@cocktail) %></p>
 
   <p><%= link_to "Back", root_path %></p>
 </div>
