@@ -29,7 +29,7 @@ class CocktailsController < ApplicationController
   end
 
   def destroy
-    @cocktail.delete
+    @cocktail.destroy
     redirect_to root_path
   end
 

@@ -1,25 +1,28 @@
 <div class="container">
   <h1><%= @cocktail.name %></h1>
+  <hr>
   <div class="d-flex justify-content-around">
     <div>
-      <%= image_tag "#{@cocktail.name.downcase}.jpg", class: "show-img" %>
+      <%= image_tag "negroni.jpg", class: "show-img" %>
     </div>
 
-    <div class="">
-
-      <div style="margin-top: 16px">
+    <div>
+      <div>
         <h4>List of Ingredients</h4>
         <ul>
           <% @cocktail.doses.each do |dose| %>
             <li>
-              <p> <%= dose.description %> <%= dose.ingredient.name %>
-                <%= link_to cocktail_dose_path(@cocktail.id, dose), method: :delete do %>
-                <i class="fas fa-trash"></i>
-              <% end %>
-              </p>
+              <div class="d-flex justify-content-between">
+                <%= dose.ingredient.name %>: <%= dose.description %>
+                  <%= link_to cocktail_dose_path(@cocktail.id, dose), method: :delete do %>
+                  <i class="fas fa-trash"></i>
+                <% end %>
+              </div>
             </li>
           <% end %>
         </ul>
+        <hr>
+        <p class="dose-btn"><%= link_to "Add dose", new_cocktail_dose_path(@cocktail) %></p>
       </div>
       <br>
       <br>
@@ -34,9 +37,16 @@
     </div>
   </div>
 
+  <div>
+    <%= link_to cocktail_path(@cocktail.id), method: :delete do %>
+      <p class="btn btn-danger"><i class="fas fa-trash"></i>   Delete <%= @cocktail.name %></p>
+    <% end %>
+  </div>
 
-  <p style="text-align: right"><%= link_to "Add dose", new_cocktail_dose_path(@cocktail) %></p>
 
-  <p><%= link_to "Back", root_path %></p>
+  <div>
+    <i class="fas fa-chevron-double-left"></i>
+    <%= link_to "Go back", root_path %>
+  </div>
 </div>
 
