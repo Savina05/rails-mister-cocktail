@@ -16,3 +16,12 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+document.addEventListener('DOMContentLoaded', (event) => {
+  const button = document.getElementById('show-me');
+  if (button) {
+    button.addEventListener('click', (event) => {
+        event.preventDefault();
+        document.getElementById('list-cocktails').scrollIntoView(true);
+    });
+  }
+});

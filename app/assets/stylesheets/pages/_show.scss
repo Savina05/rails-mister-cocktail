@@ -11,12 +11,13 @@ h1 {
 }
 
 a {
-  color: #af7793;
+  color: #78001C;
   font-weight: bold;
 
   &:hover {
     text-decoration: none;
-    color: #a55c91;
+    color: #681c13;
+    text-shadow: 1px 1px rgba(0,0,0,0.2);
   }
 }
 
@@ -28,11 +29,14 @@ a {
   width: 100%;
 }
 
-.danger-button {
-  color: red;
-  border: 2px solid red;
+.pos-center {
+  display: flex;
+  justify-content: center;
 }
 
-h4, h5 {
-  text-align: center;
+.delete-button {
+  margin-top: 16px;
+  font-size: 16px;
+  text-align: right;
 }
+

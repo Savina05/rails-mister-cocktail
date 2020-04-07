@@ -13,6 +13,16 @@
   </head>
 
   <body>
+    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <i class="fas fa-cocktail"> MisterCocktail</i>
+      <% end %>
+      <div>
+        <%= link_to "Add cocktail" , new_cocktail_path, class: "show-button" %>
+      </div>
+    </div>
     <%= yield %>
+
+
   </body>
 </html>

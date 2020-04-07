@@ -1,4 +1,10 @@
 <div class="container">
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+    </div>
+  </div>
+
+
   <h1><%= @cocktail.name %></h1>
   <hr>
   <div class="d-flex justify-content-around">
@@ -22,7 +28,10 @@
           <% end %>
         </ul>
         <hr>
-        <p class="dose-btn"><%= link_to "Add dose", new_cocktail_dose_path(@cocktail) %></p>
+        <%= link_to "Add dose", new_cocktail_dose_path(@cocktail), class: "show-button pos-center" %>
+        <button type="button" class="show-button pos-center" data-toggle="modal" data-target="#exampleModal">
+          Add dose
+        </button>
       </div>
       <br>
       <br>
@@ -38,15 +47,45 @@
   </div>
 
   <div>
-    <%= link_to cocktail_path(@cocktail.id), method: :delete do %>
-      <p class="btn btn-danger"><i class="fas fa-trash"></i>   Delete <%= @cocktail.name %></p>
+    <%= link_to cocktail_path(@cocktail.id), method: :delete, data: { confirm: "Are you sure?"} do %>
+      <p class="delete-button"><i class="fas fa-trash"></i>   Delete <%= @cocktail.name %></p>
     <% end %>
   </div>
 
 
-  <div>
-    <i class="fas fa-chevron-double-left"></i>
-    <%= link_to "Go back", root_path %>
+  <div class="back-button">
+    <%= link_to root_path do %>
+      <p><i class="fas fa-chevron-left"></i><i class="fas fa-chevron-left"></i>   Go Back </p>
+    <% end %>
   </div>
 </div>
 
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add a new dose</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for [@cocktail, @dose] do |f| %>
+          <%= f.input :description %>
+          <%= f.association :ingredient %>
+          <%= f.hidden_field :cocktail_id, :value => @cocktail.id %>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+         <%= f.button :submit, class: "show-button" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

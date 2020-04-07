@@ -1,6 +1,7 @@
 // Specific CSS for your home-page
 body {
   font-family: 'Lato', sans-serif;
+  background: rgba(120,0,28, 0.1);
 }
 
 .banner {
@@ -9,7 +10,6 @@ body {
   background-repeat: no-repeat;
   height: 570px;
   background-size: cover;
-  opacity: 0.9;
   margin-bottom: 48px;
 
   h1 {
@@ -22,43 +22,37 @@ body {
   }
 
   h1, h3 {
+    font-weight: bold;
     text-align: center;
     color: white;
-    text-shadow: 2px 2px rgba(0,0,0, 0.6);
+    text-shadow: 2px 1px rgba(0,0,0, 0.6);
   }
 
   .header-div {
-    margin-top: 150px;
+    margin-top: 120px;
+    margin-bottom: 24px;
   }
 
+}
   .show-button {
-    padding: 4px 8px;
+    padding: 8px 16px;
     border-radius: 4px;
     box-shadow: 0 1px 2px rgba(0,0,0,0.3);
     text-align: center;
-  }
-}
+    // background: #5e1d16;
+    background: #78001C;
+    color: white;
+    transition: 0.3s;
 
-a {
-  color: #af7793;
-  font-weight: bold;
-
-  &:hover {
-    text-decoration: none;
-    color: #a55c91;
+    &:hover {
+      background: #681c13;
+      box-shadow: 1px 1px rgba(0,0,0,0.3);
+      color: white;
+    }
   }
-}
 
 .card-img {
   width: 400px;
-}
-
-.pink-btn {
-  border: 1px solid #A07D90;
-  color: #A07D90;
-  padding: 8px 16px;
-  border-radius: 8px;
-  background-color: white;
 }
 
 .card {
@@ -66,25 +60,18 @@ a {
   border-radius: 8px;
 }
 
-.img-rounded {
+.img-rounded-borders {
   border-radius: 8px 8px 0px 0px;
 }
 
-.add-btn {
-  text-align: center;
-  padding: 8px 16px;
-  border-radius: 4px;
-  background-color: #af7793;
-  font-weight: bold;
-  margin: 0px;
+.main-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 70px;
+  background: white;
 
-  a {
-    color: white;
-  }
-
-  &:hover {
-    background-color: #a55c91;
+  p {
+    margin: 0px;
   }
 }
-
-

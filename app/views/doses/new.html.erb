@@ -1,4 +1,23 @@
-<div class="container">
-  <%= render 'form', dose: @dose %>
+<div style="height: 100vh">
+  <div class="container pt-5">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-6 col-lg-4">
+        <div>
+          <h2 style="text-align: center"><%= @cocktail.name %></h2>
+          <br>
+          <br>
+          <h5>Add a new dose</h5>
+          <%= render 'form', dose: @dose %>
+          <br>
+          <%= link_to cocktail_path(@cocktail.id) do %>
+          <p style="text-align: right"><i class="fas fa-undo"></i>   Cancel</p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
+<div class="main-footer">
+      <p>This website was coded with ❤️ by Savina at Le Wagon</p>
+    </div>
