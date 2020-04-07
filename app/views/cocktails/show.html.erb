@@ -9,29 +9,34 @@
   <hr>
   <div class="d-flex justify-content-around">
     <div>
-      <%= image_tag "negroni.jpg", class: "show-img" %>
+      <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
     </div>
 
     <div>
       <div>
-        <h4>List of Ingredients</h4>
-        <ul>
-          <% @cocktail.doses.each do |dose| %>
-            <li>
-              <div class="d-flex justify-content-between">
-                <%= dose.ingredient.name %>: <%= dose.description %>
-                  <%= link_to cocktail_dose_path(@cocktail.id, dose), method: :delete do %>
-                  <i class="fas fa-trash"></i>
-                <% end %>
-              </div>
-            </li>
-          <% end %>
-        </ul>
+        <div>
+          <h4>List of Ingredients</h4>
+          <ul>
+            <% @cocktail.doses.each do |dose| %>
+              <li>
+                <div class="d-flex justify-content-between">
+                  <%= dose.ingredient.name %>: <%= dose.description %>
+                    <%= link_to cocktail_dose_path(@cocktail.id, dose), method: :delete do %>
+                    <i class="fas fa-trash"></i>
+                  <% end %>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+
         <hr>
-        <%= link_to "Add dose", new_cocktail_dose_path(@cocktail), class: "show-button pos-center" %>
-        <button type="button" class="show-button pos-center" data-toggle="modal" data-target="#exampleModal">
-          Add dose
-        </button>
+        <div>
+          <!-- Button -->
+          <a class="show-button pos-center" data-toggle="modal" data-target="#exampleModal">
+            Add dose
+          </a>
+        </div>
       </div>
       <br>
       <br>
@@ -60,9 +65,6 @@
   </div>
 </div>
 
-<!-- Button trigger modal -->
-
-
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -78,13 +80,11 @@
           <%= f.input :description %>
           <%= f.association :ingredient %>
           <%= f.hidden_field :cocktail_id, :value => @cocktail.id %>
-
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-         <%= f.button :submit, class: "show-button" %>
-        <% end %>
+        <div class="modal-footer">
+          <%= f.button :submit, class: "show-button" %>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
