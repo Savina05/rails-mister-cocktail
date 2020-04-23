@@ -9,7 +9,11 @@
   <hr>
   <div class="d-flex justify-content-around">
     <div>
+      <% if @cocktail.photo.attached? %>
       <%= cl_image_tag @cocktail.photo.key, height: 400, crop: :fill %>
+      <% else %>
+        <%= cl_image_tag("https://res.cloudinary.com/savina/image/upload/v1586244716/mister_cocktail/negroni_dhg4ti.jpg", :height => 400, :crop => "fill") %>
+      <% end %>
     </div>
 
     <div>

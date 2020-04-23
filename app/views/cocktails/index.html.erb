@@ -20,7 +20,11 @@
       <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
         <div class="d-flex justify-content-around align-items-center">
           <div class="card mb-5" style="width: 18rem;">
-            <%= cl_image_tag cocktail.photo.key, height: 200, width: 280, crop: :lfill, class: "card-img-top img-rounded-borders" %>
+            <% if cocktail.photo.attached? %>
+              <%= cl_image_tag cocktail.photo.key, height: 200, width: 280, crop: :lfill, class: "card-img-top img-rounded-borders" %>
+              <% else %>
+              <%= cl_image_tag "https://res.cloudinary.com/savina/image/upload/v1586244716/mister_cocktail/negroni_dhg4ti.jpg", height: 200, width: 280, crop: :lfill, class: "card-img-top img-rounded-borders" %>
+            <% end %>
             <div class="card-body">
               <h5 class="card-title"><%= link_to cocktail.name.capitalize, cocktail_path(cocktail.id) %></h5>
               <p class="card-text">See the ingredients to prepare the best <%= cocktail.name.capitalize %></p>
